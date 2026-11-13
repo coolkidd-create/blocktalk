@@ -1,0 +1,10 @@
+{
+  "name": "minecraft-education-proximity-voice",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A browser-based push-to-talk proximity voice companion for Minecraft Education",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "dependencies": { "express": "^4.21.2", "ws": "^8.18.0" },
+  "engines": { "node": ">=18" }
+}

@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#18251d">
+  <title>BlockTalk — Minecraft Education Voice</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header>
+      <div class="logo">🎤</div>
+      <div><h1>BlockTalk</h1><p>Minecraft Education proximity voice</p></div>
+      <span id="status" class="status">Not connected</span>
+    </header>
+
+    <section class="panel setup" id="setup">
+      <h2>Join your voice room</h2>
+      <p>Everyone playing together must open this page and use the same room code.</p>
+      <label>Player name<input id="name" maxlength="24" placeholder="Steve" autocomplete="nickname"></label>
+      <label>Room code<input id="room" maxlength="32" placeholder="class-world-1"></label>
+      <div class="coords">
+        <label>X coordinate<input id="x" type="number" value="0" step="1"></label>
+        <label>Y coordinate<input id="y" type="number" value="0" step="1"></label>
+        <label>Z coordinate<input id="z" type="number" value="0" step="1"></label>
+      </div>
+      <label>Hear players within <strong><span id="radiusValue">20</span> blocks</strong>
+        <input id="radius" type="range" min="4" max="64" value="20">
+      </label>
+      <button id="join" class="primary">Join voice chat</button>
+      <p class="hint">Use your Minecraft coordinates above. Update them as you move.</p>
+      <p id="error" class="error" role="alert"></p>
+    </section>
+
+    <section class="panel room-panel hidden" id="roomPanel">
+      <div class="room-heading">
+        <div><h2>Room: <span id="roomName"></span></h2><p id="micState">Microphone is muted</p></div>
+        <button id="leave" class="secondary">Leave</button>
+      </div>
+      <div class="coordinate-card">
+        <h3>Your Minecraft position</h3>
+        <div class="coords">
+          <label>X<input id="liveX" type="number" step="1"></label>
+          <label>Y<input id="liveY" type="number" step="1"></label>
+          <label>Z<input id="liveZ" type="number" step="1"></label>
+        </div>
+        <button id="updatePosition" class="secondary">Update position</button>
+      </div>
+      <button id="talk" class="talk" disabled>Hold to talk</button>
+      <p class="hint center">Press and hold the button (or hold Space) to speak. Let go to mute.</p>
+      <div class="players-heading"><h3>Players nearby</h3><span id="playerCount">0 players</span></div>
+      <ul id="players" class="players"><li class="empty">No one else is here yet.</li></ul>
+      <p class="small">Voice is heard only when a player is within your selected distance. Coordinates are entered manually; Minecraft Education does not provide this companion app with live player positions.</p>
+    </section>
+    <footer>BlockTalk is an unofficial companion app, not made by or affiliated with Mojang or Microsoft.</footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
